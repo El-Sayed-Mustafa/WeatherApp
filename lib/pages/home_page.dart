@@ -1,13 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/main.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/pages/search_page.dart';
 import 'package:weather_app/providers/weather_provider.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -34,16 +32,16 @@ class _HomePageState extends State<HomePage> {
                 );
               }));
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           ),
         ],
-        title: Text('Weather App'),
+        title: const Text('Weather App'),
       ),
       body: Provider.of<WeatherProvider>(context).weatherData == null
           ? Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                children: [
+                children: const [
                   Text(
                     'there is no weather 😔 start',
                     style: TextStyle(
@@ -78,25 +76,25 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Text(
                     Provider.of<WeatherProvider>(context).cityName!,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
                     'updated at : ${weatherData!.date.hour.toString()}:${weatherData!.date.minute.toString()}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 22,
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Image.asset(weatherData!.getImage()),
                       Text(
                         weatherData!.temp.toInt().toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
                         ),
@@ -109,15 +107,15 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     weatherData!.weatherStateName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Spacer(
+                  const Spacer(
                     flex: 5,
                   ),
                 ],
